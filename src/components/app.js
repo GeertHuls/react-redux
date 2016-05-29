@@ -6,7 +6,7 @@ class App extends React.Component {
     return (
       <div className="container-fluid">
         <p>Header here...</p>
-        {this.props.children} //Children are passed in through react-router
+        {this.props.children}
       </div>
     );
   }
