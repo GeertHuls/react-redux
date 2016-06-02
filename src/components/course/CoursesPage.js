@@ -26,10 +26,15 @@ class CoursesPage extends React.Component {
 			this.props.dispatch(courseActions.createCourse(this.state.course));
 		}
 
+		courseRow(course, index) {
+			return <div key={index}>{course.title}</div>;
+		}
+
 		render() {
 			return (
 				<div>
 					<h1>courses</h1>
+					{this.props.courses.map(this.courseRow)}
 					<h2>Add course</h2>
 					<input
 						type="text"
@@ -58,7 +63,8 @@ function mapStateToProps(state, ownProps) {
 }
 
 CoursesPage.propTypes = {
-  dispatch: React.PropTypes.function.isRequired
+  dispatch: React.PropTypes.func.isRequired,
+	courses: React.PropTypes.array.isRequired
 };
 
 //mapDispatchToProps is used to define what actions
