@@ -1,4 +1,6 @@
 import React, {PropTypes} from 'react';
+import {connect} from 'react-redux';
+import * as courseActions from '../../actions/courseActions';
 
 class CoursesPage extends React.Component {
 		constructor(props, context) {
@@ -19,7 +21,9 @@ class CoursesPage extends React.Component {
 		}
 
 		onClickSave() {
-			console.log(`Saving ${this.state.course.title}`);
+			//With dispatch you can fire off action, delcared in the actions class.
+			//The dispatch prop is injected by the connect function below.
+			this.props.dispatch(courseActions.createCourse(this.state.course));
 		}
 
 		render() {
@@ -41,4 +45,23 @@ class CoursesPage extends React.Component {
 	}
 }
 
-export default CoursesPage;
+//The state param is the state from the redux store.
+//The state.courses prop in the return value is defined in the
+//root reducer (index.js) file.
+
+//The ownProps param are the props attached to this component.
+//Might be useful for router related props.
+function mapStateToProps(state, ownProps) {
+	return {
+		courses: state.courses
+	};
+}
+
+CoursesPage.propTypes = {
+  dispatch: React.PropTypes.function.isRequired
+};
+
+//mapDispatchToProps is used to define what actions
+//are exposed in the component. If you don't provide a mapDispatchToProps
+//param, connect will attach a dispatchprops automatically.
+export default connect(mapStateToProps/*, mapDispatchToProps*/)(CoursesPage);
