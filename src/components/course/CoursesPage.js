@@ -23,7 +23,7 @@ class CoursesPage extends React.Component {
 		onClickSave() {
 			//With dispatch you can fire off action, delcared in the actions class.
 			//The dispatch prop is injected by the connect function below.
-			this.props.dispatch(courseActions.createCourse(this.state.course));
+			this.props.createCourse(this.state.course);
 		}
 
 		courseRow(course, index) {
@@ -63,11 +63,17 @@ function mapStateToProps(state, ownProps) {
 }
 
 CoursesPage.propTypes = {
-  dispatch: React.PropTypes.func.isRequired,
+  createCourse: React.PropTypes.func.isRequired,
 	courses: React.PropTypes.array.isRequired
 };
+
+function mapDispatchToProps (dispatch) {
+	return {
+		createCourse: course => dispatch(courseActions.createCourse(course))
+	};
+}
 
 //mapDispatchToProps is used to define what actions
 //are exposed in the component. If you don't provide a mapDispatchToProps
 //param, connect will attach a dispatchprops automatically.
-export default connect(mapStateToProps/*, mapDispatchToProps*/)(CoursesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
