@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/courseActions';
+import CourseList from './CourseList';
 
 class CoursesPage extends React.Component {
 		constructor(props, context) {
@@ -13,10 +14,15 @@ class CoursesPage extends React.Component {
 		}
 
 		render() {
+			//This is called destructuring.
+			//The actual path is: this.props.courses.
+			//But with destructuring you seperate the property in a seperate const.
+			const {courses} = this.props;
+
 			return (
 				<div>
 					<h1>courses</h1>
-					{this.props.courses.map(this.courseRow)}
+					<CourseList courses={courses}/>
 				</div>
 		);
 	}
