@@ -6,11 +6,8 @@ import * as types from '../actions/actionTypes';
 // Use inital state with server side rendered apps.
 export default function CourseReducer(state = [], action) {
   switch (action.type) {
-    case types.CREATE_COURSE:
-      //Create new array (using spread operator) and add a new value.
-      return[...state,
-        Object.assign({}, action.course)
-      ];
+    case types.LOAD_COURSES_SUCCESS:
+      return action.courses;
 
     default:
       return state;
