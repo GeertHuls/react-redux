@@ -1,3 +1,4 @@
+//This is a container component (smart component)
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';

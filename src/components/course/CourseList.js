@@ -1,3 +1,4 @@
+//This is a stateless functional component (dumb component)
 import React, {PropTypes} from 'react';
 import CourseListRow from './CourseListRow';
 
