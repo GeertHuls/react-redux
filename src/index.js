@@ -13,12 +13,14 @@ import {Provider} from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 import {loadCourses} from './actions/courseActions';
+import {loadAuthors} from './actions/authorActions';
 import './styles/styles.css'; //Webpack can import CSS files too!
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 //In case of a server side rendered, you might need an initial state.
 const store = configureStore(/*initialState*/);
 store.dispatch(loadCourses());
+store.dispatch(loadAuthors());
 
 render(
 	<Provider store={store}>
