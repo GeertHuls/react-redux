@@ -10,19 +10,25 @@ class ManageCoursePage extends React.Component {
     super(props,context);
 
     this.state = {
-      course: Object.assign({}, props.initialCourse),
+      course: Object.assign({}, props.course), //this is the initial state
       errors: {}
     };
 
     this.updateCourseState = this.updateCourseState.bind(this);
+    this.saveCourse = this.saveCourse.bind(this);
   }
 
   //This function updates state for each form field:
   updateCourseState(event) {
     const field = event.target.name;
-    let course = event.state.course;
+    let course = this.state.course;
     course[field] = event.target.value;
     return this.setState({course: course});
+  }
+
+  saveCourse(event) {
+    event.preventDefault();
+    this.props.actions.saveCourse(this.state.course);
   }
 
   render() {
@@ -30,6 +36,7 @@ class ManageCoursePage extends React.Component {
       <CourseForm
         allAuthors={this.props.authors}
         onChange={this.updateCourseState}
+        onSave={this.saveCourse}
         course={this.state.course}
         errors={this.state.errors}
         />
@@ -38,8 +45,9 @@ class ManageCoursePage extends React.Component {
 }
 
 ManageCoursePage.propTypes = {
-  initialCourse: PropTypes.object.isRequired,
-  authors: PropTypes.array.isRequired
+  course: PropTypes.object.isRequired,
+  authors: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
