@@ -18,6 +18,18 @@ class ManageCoursePage extends React.Component {
     this.saveCourse = this.saveCourse.bind(this);
   }
 
+  //React livecycle method, any time the props have changed.
+  //Fe, when an api call was finished fetching data.
+  componentWillReceiveProps(nextProps) {
+    //This function however might run even when props haven't changed,
+    //React runs it for safety.
+    //Therefore you should check this first:
+    if (this.props.course.id != nextProps.course.id) {
+      // Necessary to populate form when existing course is loaded directly.
+      this.setState({course: Object.assign({}, nextProps.course)});
+    }
+  }
+
   //This function updates state for each form field:
   updateCourseState(event) {
     const field = event.target.name;
