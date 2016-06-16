@@ -4,7 +4,7 @@ import App from './components/App';
 import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
 import CoursesPage from './components/course/CoursesPage';
-import ManageCoursePage from './components/course/ManageCoursePage';
+import ManageCoursePage from './components/course/ManageCoursePage';  //eslint-disable-line import/no-named-as-default
 
 //The HomePage and AboutPage are examples of child components with are passed in,
 //into the app component.
