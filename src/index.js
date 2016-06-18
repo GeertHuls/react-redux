@@ -4,6 +4,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
+/*eslint-disable import/default */
 import configureStore from './store/configureStore';
 //The provider attaches a store to a react container component.
 import {Provider} from 'react-redux';
