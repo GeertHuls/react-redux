@@ -23,7 +23,7 @@ export default {
 	plugins: [
     new webpack.optimize.OccurenceOrderPlugin(), //for optimal minification
     new webpack.DefinePlugin(GLOBALS), //set build to production mode (reduce bundle size, drop prop type validations, etc...)
-    new ExtractTextPlugin('style.css'), //creates separate css file
+    new ExtractTextPlugin('styles.css'), //creates separate css file
     new webpack.optimize.DedupePlugin(), //eliminates duplicated in bundle
     new webpack.optimize.UglifyJsPlugin() //minifies javascript
 	],
