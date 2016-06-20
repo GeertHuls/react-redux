@@ -8,4 +8,4 @@ Dev build run:
 > npm start
 
 Production build run:
-> npm build
+> npm run build
