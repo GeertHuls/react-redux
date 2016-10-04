@@ -9,3 +9,11 @@ Dev build run:
 
 Production build run:
 > npm run build
+
+## Docker
+
+Running source code in node container.
+After cd'ing into source code folder, run the following command:
+> docker run -it -p 3001:3001 -v $(pwd):/var/www node bin/bash
+
+Inside the container, cd into /Var/www to continue development.
