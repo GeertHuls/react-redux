@@ -1,5 +1,5 @@
 {
-  "name": "react-redux",
+  "name": "react-redux-example",
   "version": "1.0.0",
   "description": "Example react redux app",
   "main": "index.js",
@@ -16,8 +16,11 @@
     "remove-dist": "node_modules/.bin/rimraf ./dist",
     "build:html": "babel-node tools/buildHtml.js",
     "prebuild": "npm-run-all clean-dist test lint build:html",
-    "build": "babel-node tools/build.js",
-    "postbuild": "babel-node tools/distServer.js"
+    "build": "npm run builddist",
+    "postbuild": "npm run serve",
+
+    "builddist" : "babel-node tools/build.js",
+    "serve": "babel-node tools/distServer.js"
   },
   "author": "Geert Huls",
   "license": "ISC",

@@ -8,10 +8,10 @@ COPY . /var/www
 WORKDIR /var/www
 
 RUN npm install \
-    npm run clean-dist \
-    npm run build:html \
-    babel-node tools/build.js
+    && npm run clean-dist \
+    && npm run build:html \
+    && npm run build
 
 EXPOSE $PORT
 
-ENTRYPOINT ["babel-node", "tools/distServer.js"]
+ENTRYPOINT ["npm", "run", "serve"]
