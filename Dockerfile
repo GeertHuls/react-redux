@@ -7,10 +7,10 @@ ENV PORT=3001
 COPY . /var/www
 WORKDIR /var/www
 
-RUN npm install \
+RUN npm install --production \
     && npm run clean-dist \
     && npm run build:html \
-    && npm run build
+    && npm run builddist
 
 EXPOSE $PORT
 
