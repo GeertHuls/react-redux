@@ -1,0 +1,48 @@
+    # 1. Run docker-compose build
+    # 2. Run docker-compose up
+    # 3. Live long and prosper
+
+version: '1'
+
+services:
+  nginx:
+    container_name: nginx_front
+    build:
+      context: .
+      dockerfile: .docker/docker-nginx.dockerfile
+    links:
+      - node1:node1
+      - node2:node2
+      - node3:node3
+    ports:
+      - "8081:8081"
+    networks:
+      - courses-network
+
+  node1:
+    container_name: courses-app-1
+    image: geerthuls/courses-app
+    ports:
+     - "3001"
+    networks:
+      - courses-network
+
+  node2:
+    container_name: courses-app-2
+    image: geerthuls/courses-app
+    ports:
+     - "3001"
+    networks:
+      - courses-network
+
+    node3:
+      container_name: courses-app-3
+      image: geerthuls/courses-app
+      ports:
+       - "3001"
+      networks:
+        - courses-network
+
+networks:
+  courses-network:
+    driver: bridge
