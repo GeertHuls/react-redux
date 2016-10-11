@@ -1,8 +1,4 @@
-    # 1. Run docker-compose build
-    # 2. Run docker-compose up
-    # 3. Live long and prosper
-
-version: '1'
+version: '2'
 
 services:
   nginx:
@@ -35,13 +31,13 @@ services:
     networks:
       - courses-network
 
-    node3:
-      container_name: courses-app-3
-      image: geerthuls/courses-app
-      ports:
-       - "3001"
-      networks:
-        - courses-network
+  node3:
+    container_name: courses-app-3
+    image: geerthuls/courses-app
+    ports:
+     - "3001"
+    networks:
+      - courses-network
 
 networks:
   courses-network:
