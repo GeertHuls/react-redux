@@ -20,11 +20,11 @@ Inside the container, cd into /Var/www to continue development.
 
 To build a docker image run the following command:
 
-> docker build -t username/name-app
+> docker build -t <image_name>:\<tag> .
 
 To run an actual container from the image:
 
-> docker run -d -p 3001:3001 username/app-app
+> docker run -d -p 3001:3001 <image_name>:\<tag>
 
 ### Docker compose
 
