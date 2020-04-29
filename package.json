@@ -37,7 +37,7 @@
     "babel-polyfill": "^6.9.0",
     "bootstrap": "^3.3.6",
     "colors": "^1.1.2",
-    "jquery": "^2.2.4",
+    "jquery": "^3.5.0",
     "jsdom": "^9.2.0",
     "enzyme": "^2.3.0",
     "rimraf": "^2.5.2",
